@@ -1,3 +1,58 @@
-<section class="work-together" id="work-together">
-  <div class="container"></div>
-</section>
+<footer class="footer">
+  <section class="work-together" id="work-together">
+    <div class="container">
+
+      <div class="portrait-title-together-container">
+        <div class="portrait-title-container">
+          <picture>
+            <source srcset="../img/footer-tab-desk-portrait.webp 1x, ../img/footer-tab-desk-portrait@2x.webp 2x"
+              media="(min-width: 1280px)" type="image/webp">
+            <source srcset="../img/footer-tab-desk-portrait.png 1x, ../img/footer-tab-desk-portrait@2x.png 2x"
+              media="(min-width: 1280px)" type="image/png">
+
+            <source srcset="../img/footer-tab-desk-portrait.webp 1x, ../img/footer-tab-desk-portrait@2x.webp 2x"
+              media="(min-width: 768px)" type="image/webp">
+            <source srcset="../img/footer-tab-desk-portrait.png, ../img/footer-tab-desk-portrait@2x.png 2x"
+              media="(min-width: 768px)" type="image/png">
+
+            <source srcset="../img/footer-mob-portrait.webp 1x, ../img/footer-mob-portrait@2x.webp 2x"
+              media="(max-width: 767px)" type="image/webp">
+            <source srcset="../img/footer-mob-portrait.png 1x, ../img/footer-mob-portraitt@2x.png 2x"
+              media="(max-width: 767px)" type="image/png">
+
+            <img class="section-portrait" src="../img/footer-mob-portrait.png" alt="A portrait">
+          </picture>
+
+          <h2 class="form-title">Let's <span class="red">work</span></h2>
+        </div>
+        <span class="form-title">together</span>
+      </div>
+
+      <form class="form js-form">
+        <div class="input-message-container">
+          <input class="form-input email js-email" type="email" name="user-email" placeholder="clients@gmail.com"
+            pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+
+          <div class="message-text">
+            <p class="success-messasge hide js-success-messasge">Success!</p>
+            <p class="error-messasge hide js-error-messasge">Invalid email, please try again</p>
+          </div>
+        </div>
+
+        <input class="form-input comment" type="text" name="user-comment" placeholder="comments">
+        <button class="form-button" type="submit">Send</button>
+      </form>
+
+      <address class="address">
+        <ul class="address-list">
+          <li class="address-item">
+            <a class="address-link" href="mailto:lloydjefferson@gmail.com">lloydjefferson@gmail.com</a>
+          </li>
+          <li class="address-item">
+            <a class="address-link" href="tel:+3801111111111">+380 11 1111 11 11</a>
+          </li>
+        </ul>
+      </address>
+    </div>
+  </section>
+</footer>
