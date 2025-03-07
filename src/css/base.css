@@ -8,7 +8,7 @@
 
   --main-text: #fafafa;
 
-  --font-family: "Inter Tight", sans-serif;
+  --font-family: 'Inter Tight', sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,18 +28,18 @@ body {
   font-weight: 500;
 }
 
-section:not(:last-child) {
+section {
   padding-bottom: 64px;
 }
 
 @media screen and (min-width: 768px) {
-  section:not(:first-child, :last-child) {
+  section:not(:first-child) {
     padding-bottom: 96px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  section:not(:first-child, :last-child) {
+  section:not(:first-child) {
     padding-bottom: 164px;
   }
 
