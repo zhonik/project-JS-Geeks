@@ -11,12 +11,20 @@ const refs = {
   reviewsSection: document.querySelector('.reviews'),
   prevButton: document.querySelector('.reviews-button.swiper-button-prev'),
   nextButton: document.querySelector('.reviews-button.swiper-button-next'),
+  reviewsBtnBox: document.querySelector('.reviews-btn-box'),
 };
 
 let reviewsServerError = false;
 let noReviewsError = false;
 
 // ====================================Main Logic===================================
+
+refs.reviewsBtnBox.addEventListener('mousedown', e => {
+  if (e.target === e.currentTarget) {
+    return;
+  }
+  setTimeout(() => e.target.closest('button').blur(), 0);
+});
 
 const swiper = new Swiper('.reviews-card-container.swiper', {
   modules: [Navigation, Keyboard],
