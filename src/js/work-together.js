@@ -57,6 +57,9 @@ async function handleFormSubmit(e) {
     refs.modalWindow.innerHTML = markup;
 
     if (data) {
+      hideSuccessMessage();
+      hideErrorMessage();
+
       openModal();
       e.target.reset();
     }
@@ -121,11 +124,13 @@ async function createMessage({ email, comment }) {
 function openModal() {
   refs.modalBackdrop.classList.add('is-open');
   document.addEventListener('keydown', onEscapePress);
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   refs.modalBackdrop.classList.remove('is-open');
   document.removeEventListener('keydown', onEscapePress);
+  document.body.style.overflow = 'auto';
 }
 
 function onEscapePress(e) {

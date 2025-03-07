@@ -55,11 +55,6 @@
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-.email-input-container {
-    margin-bottom: 16px;
-}
-
 .form-input.comment {
     margin-bottom: 32px;
 }
@@ -134,6 +129,7 @@
 
 .email-input-container {
     position: relative;
+    margin-bottom: 32px;
 }
 
 .success-message,
@@ -143,7 +139,7 @@
     top: 50px;
     left: 0;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .success-message {
