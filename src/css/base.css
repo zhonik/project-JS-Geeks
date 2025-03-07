@@ -2,7 +2,7 @@
   --background: #1c1d20;
   --cards: #242527;
   --arrow: #3b3b3b;
-  --button-text: #ed3b44;
+  --button-text: #2b4441;
   --main-text: #fafafa;
 
   font-synthesis: none;
@@ -33,7 +33,7 @@ section:not(:last-child) {
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1440px) {
   section:not(:first-child, :last-child) {
     padding-bottom: 164px;
   }
