@@ -3,8 +3,12 @@
   --cards: #242527;
   --arrow: #3b3b3b;
   --button-text: #2b4441;
+
   --button-hover: #1e3633;
+
   --main-text: #fafafa;
+
+  --font-family: "Inter Tight", sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
