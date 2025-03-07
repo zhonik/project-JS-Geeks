@@ -9,8 +9,8 @@ const refs = {
   reviewsList: document.querySelector('.reviews-card-list'),
   stubReviews: document.querySelector('.reviews-not-found'),
   reviewsSection: document.querySelector('.reviews'),
-  prevButton: document.querySelector('.swiper-button-prev'),
-  nextButton: document.querySelector('.swiper-button-next'),
+  prevButton: document.querySelector('.reviews-button.swiper-button-prev'),
+  nextButton: document.querySelector('.reviews-button.swiper-button-next'),
 };
 
 let reviewsServerError = false;
@@ -18,13 +18,13 @@ let noReviewsError = false;
 
 // ====================================Main Logic===================================
 
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.reviews-card-container.swiper', {
   modules: [Navigation, Keyboard],
   slidesPerView: 1,
   speed: 1000,
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.reviews-button.swiper-button-next',
+    prevEl: '.reviews-button.swiper-button-prev',
   },
   spaceBetween: 16,
   breakpoints: {
