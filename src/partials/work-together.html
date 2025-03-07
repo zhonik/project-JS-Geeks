@@ -19,7 +19,7 @@
           <source srcset="./img/footer-mob-portrait.png 1x, ./img/footer-mob-portraitt@2x.png 2x"
             media="(max-width: 767px)" type="image/png">
 
-          <img class="section-portrait" src="../img/footer-mob-portrait.png" alt="A portrait">
+          <img class="section-portrait" src="./img/footer-mob-portrait.png" alt="A portrait">
         </picture>
 
         <h2 class="form-title">Let's <span class="red">work</span></h2>
@@ -30,15 +30,16 @@
     <form class="form js-form">
       <div class="input-message-container">
         <div class="inputs-container">
-          <input class="form-input email js-email" type="email" name="user-email" placeholder="clients@gmail.com"
-            pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+          <div class="email-input-container">
+            <input class="form-input email js-email" type="email" name="user-email" placeholder="clients@gmail.com"
+              pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
 
-          <!-- <div class="message-text">
-            <p class="success-messasge hide js-success-messasge">Success!</p>
-            <p class="error-messasge hide js-error-messasge">Invalid email, please try again</p>
-          </div> -->
+            <p class="success-message fade-out js-success-message">Success!</p>
+            <p class="error-message fade-out js-error-messasge">Invalid email, please try again</p>
+          </div>
 
-          <input class="form-input comment" type="text" name="user-comment" placeholder="comments">
+          <input class="form-input comment js-comment" type="text" name="user-comment" placeholder="comments"
+            data-maxlength="30">
         </div>
 
       </div>

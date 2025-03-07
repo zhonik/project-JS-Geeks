@@ -1,5 +1,5 @@
 .work-together {
-    padding-top: 32px;
+    padding-top: 64px;
     padding-bottom: 32px;
     position: relative;
 }
@@ -55,6 +55,11 @@
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+
+.email-input-container {
+    margin-bottom: 16px;
+}
+
 .form-input.comment {
     margin-bottom: 32px;
 }
@@ -73,14 +78,6 @@
 .form-input:focus {
     outline: none;
     border-color: #fafafa;
-}
-
-.email.success {
-    border-color: #3cbc81;
-}
-
-.email.error {
-    border-color: #e74a3b;
 }
 
 .form-button {
@@ -135,16 +132,34 @@
     margin-bottom: 8px;
 }
 
-.hide {
-    display: none;
+.email-input-container {
+    position: relative;
 }
 
-.success-messasge {
+.success-message,
+.error-message {
+    font-size: 14px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.success-message {
     color: #3cbc81;
 }
 
-.error-messasge {
+.error-message {
     color: #e74a3b;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
 }
 
 @media (min-resolution: 192dpi) {
@@ -164,6 +179,12 @@
 }
 
 @media screen and (min-width: 768px) {
+    .work-together {
+        padding-top: 176px;
+        padding-bottom: 170px;
+        position: relative;
+    }
+
     .work-together::after {
         background-image: url(../img/footer-tab-bg-decor.png);
         width: 198px;
@@ -201,6 +222,10 @@
         margin-bottom: 0;
     }
 
+    .email-input-container {
+        margin-bottom: 0;
+    }
+
     .form-input.comment {
         margin-bottom: 0;
     }
@@ -222,6 +247,7 @@
 
 @media screen and (min-width: 1440px) {
     .work-together {
+        padding-top: 244px;
         max-width: 1048px;
         margin: 0 auto;
     }
