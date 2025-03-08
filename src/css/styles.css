@@ -9,6 +9,7 @@
 @import url('./base.css');
 @import url('./container.css');
 @import url('./animations.css');
+@import url('../fonts/stylesheet.css');
 
 /* Sections style */
 @import url('./header.css');
@@ -20,3 +21,4 @@
 @import url('./projects.css');
 @import url('./reviews.css');
 @import url('./work-together.css');
+@import url('./modal.css');

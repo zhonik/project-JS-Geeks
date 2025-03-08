@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding-top: 20px;
 }
+
 .faq-title {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 600;
@@ -13,16 +14,19 @@
   text-align: left;
   margin-bottom: 20px;
 }
+
 .faq-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .faq-item {
   position: relative;
   padding-top: 20px;
   margin-bottom: 40px;
 }
+
 .faq-item:not(:last-child)::before {
   content: '';
   position: absolute;
@@ -32,17 +36,21 @@
   height: 1px;
   background-color: rgba(250, 250, 250, 0.2);
 }
+
 .faq-item.last-item {
   position: relative;
   padding-bottom: 40px;
   border-top: 1px solid rgba(250, 250, 250, 0.2);
   border-bottom: 1px solid rgba(250, 250, 250, 0.2);
 }
+
 .faq-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
+
 .faq-question {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 600;
@@ -50,6 +58,7 @@
   color: #fafafa;
   margin: 0;
 }
+
 .toggle-btn {
   background: none;
   border: 1px solid rgba(250, 250, 250, 0.2);
@@ -62,17 +71,31 @@
   height: 34px;
   padding: 7px;
   box-sizing: border-box;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.toggle-btn:hover {
+  background-color: rgba(250, 250, 250, 0.1);
+  border-color: rgba(250, 250, 250, 0.4);
+}
+
 .icon {
   width: 24px;
   height: 24px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.icon.rotated {
+  transform: rotate(180deg);
+}
+
 .icon path {
   stroke-width: 2px;
   stroke: #fafafa;
 }
+
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -81,23 +104,25 @@
   font-family: 'Inter Tight', sans-serif;
   font-size: 16px;
   line-height: 150%;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .faq-answer.open {
   max-height: 200px;
-  padding: 15px 0;
+  opacity: 1;
+  transform: translateY(0);
 }
-.toggle-btn svg {
-  transition: transform 0.3s ease-in-out;
-}
-.toggle-btn.open svg {
-  transform: rotate(180deg);
-}
+
 @media (min-width: 768px) {
   .faq-container {
     max-width: 1439px;
   }
 }
+
 @media (min-width: 1440px) {
   .faq-list {
     display: grid;

@@ -1,11 +1,14 @@
 :root {
-  --font-family: 'Inter Tight', sans-serif;
-
   --background: #1c1d20;
   --cards: #242527;
   --arrow: #3b3b3b;
-  --button-text: #ed3b44;
+  --button-text: #2b4441;
+
+  --button-hover: #1e3633;
+
   --main-text: #fafafa;
+
+  --font-family: 'Inter Tight', sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,18 +28,18 @@ body {
   font-weight: 500;
 }
 
-section:not(:last-child) {
+section {
   padding-bottom: 64px;
 }
 
 @media screen and (min-width: 768px) {
-  section:not(:first-child, :last-child) {
+  section:not(:first-child) {
     padding-bottom: 96px;
   }
 }
 
-@media screen and (min-width: 1280px) {
-  section:not(:first-child, :last-child) {
+@media screen and (min-width: 1440px) {
+  section:not(:first-child) {
     padding-bottom: 164px;
   }
 
