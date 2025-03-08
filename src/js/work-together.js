@@ -16,7 +16,10 @@ const refs = {
 
 refs.form.addEventListener('submit', handleFormSubmit);
 refs.emailInput.addEventListener('input', handleEmailInput);
-refs.commentInput.addEventListener('blur', handleCommentInput);
+refs.commentInput.addEventListener('input', handleCommentInput);
+refs.commentInput.addEventListener('blur', formatCommentForDisplay);
+refs.commentInput.addEventListener('focus', showFullCommentText);
+window.addEventListener('resize', handleWindowResize);
 refs.modalWindow.addEventListener('click', e => {
   if (e.target.closest('.js-modal-close-button')) {
     closeModal();
@@ -93,12 +96,6 @@ function handleEmailInput() {
 
 function handleCommentInput() {
   fullCommentText = refs.commentInput.value;
-  const maxLength = refs.commentInput.getAttribute('data-maxlength');
-  const numberMaxLength = parseInt(maxLength);
-
-  if (maxLength && fullCommentText.length > maxLength) {
-    refs.commentInput.value = formatMessage(fullCommentText, numberMaxLength);
-  }
 }
 
 // ======== API ========
@@ -169,6 +166,38 @@ function formatMessage(message, maxLength) {
     return message.slice(0, visibleLength) + '...';
   }
   return message;
+}
+
+function getMaxLengthForScreenSize() {
+  const width = window.innerWidth;
+
+  if (width >= 320 && width <= 767) {
+    return 36;
+  } else if (width >= 768 && width <= 1440) {
+    return 30;
+  } else if (width >= 1440) {
+    return 44;
+  }
+}
+
+function handleWindowResize() {
+  if (document.activeElement !== refs.commentInput) {
+    formatCommentForDisplay();
+  }
+}
+
+function formatCommentForDisplay() {
+  if (!fullCommentText) return;
+
+  const maxLength = getMaxLengthForScreenSize();
+
+  if (fullCommentText.length > maxLength) {
+    refs.commentInput.value = formatMessage(fullCommentText, maxLength);
+  }
+}
+
+function showFullCommentText() {
+  refs.commentInput.value = fullCommentText;
 }
 
 // ======== RENDER ========
