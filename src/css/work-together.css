@@ -1,18 +1,10 @@
 .work-together {
     padding-top: 32px;
     padding-bottom: 32px;
-    position: relative;
-}
-
-.work-together::after {
-    position: absolute;
-    content: '';
-    background-image: url(../img/footer-mob-bg-decor.png);
-    width: 86px;
-    height: 460px;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
+    background-image: url(../img/footer-desk-bg-decor.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: 290px center;
 }
 
 .portrait-title-together-container {
@@ -61,7 +53,7 @@
 
 .form-input::placeholder {
     color: rgba(250, 250, 250, 0.6);
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
 
 .form-input:hover::placeholder,
@@ -73,14 +65,6 @@
 .form-input:focus {
     outline: none;
     border-color: #fafafa;
-}
-
-.email.success {
-    border-color: #3cbc81;
-}
-
-.email.error {
-    border-color: #e74a3b;
 }
 
 .form-button {
@@ -135,16 +119,35 @@
     margin-bottom: 8px;
 }
 
-.hide {
-    display: none;
+.email-input-container {
+    position: relative;
+    margin-bottom: 32px;
 }
 
-.success-messasge {
+.success-message,
+.error-message {
+    font-size: 14px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    opacity: 0;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.success-message {
     color: #3cbc81;
 }
 
-.error-messasge {
+.error-message {
     color: #e74a3b;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
 }
 
 @media (min-resolution: 192dpi) {
@@ -164,16 +167,10 @@
 }
 
 @media screen and (min-width: 768px) {
-    .work-together::after {
-        background-image: url(../img/footer-tab-bg-decor.png);
-        width: 198px;
-        height: 384px;
-    }
-
-    @media (min-resolution: 192dpi) {
-        .work-together::after {
-            background-image: url(../img/footer-tab-bg-decor@2x.png);
-        }
+    .work-together {
+        padding-top: 88px;
+        padding-bottom: 170px;
+        background-position: 560px center;
     }
 
     .portrait-title-container {
@@ -201,6 +198,10 @@
         margin-bottom: 0;
     }
 
+    .email-input-container {
+        margin-bottom: 0;
+    }
+
     .form-input.comment {
         margin-bottom: 0;
     }
@@ -222,19 +223,13 @@
 
 @media screen and (min-width: 1440px) {
     .work-together {
+
+        background-position: 980px center;
+    }
+
+    .form-section-container {
         max-width: 1048px;
         margin: 0 auto;
-    }
-
-    .work-together::after {
-        background-image: url(../img/footer-desk-bg-decor.png);
-        width: 400px;
-    }
-
-    @media (min-resolution: 192dpi) {
-        .work-together::after {
-            background-image: url(../img/footer-desk-bg-decor@2x.png);
-        }
     }
 
     .form {
