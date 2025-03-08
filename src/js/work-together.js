@@ -42,7 +42,7 @@ async function handleFormSubmit(e) {
   const comment = e.target.elements['user-comment'].value.trim();
 
   if (!email || !comment) {
-    iziToast.info({
+    iziToast.error({
       message: 'Please complete the field',
     });
     return;
@@ -121,19 +121,34 @@ async function createMessage({ email, comment }) {
 function openModal() {
   refs.modalBackdrop.classList.add('is-open');
   document.addEventListener('keydown', onEscapePress);
-  document.body.style.overflow = 'hidden';
+  disableScroll();
 }
 
 function closeModal() {
   refs.modalBackdrop.classList.remove('is-open');
   document.removeEventListener('keydown', onEscapePress);
-  document.body.style.overflow = 'auto';
+  enableScroll();
 }
 
 function onEscapePress(e) {
   if (e.key === 'Escape') {
     closeModal();
   }
+}
+
+function disableScroll() {
+  const windowWidth = window.innerWidth;
+  const scrollWidth = document.documentElement.clientWidth;
+
+  const scrollBarWidth = windowWidth - scrollWidth;
+
+  document.body.style.paddingRight = `${scrollBarWidth}px`;
+  document.body.style.overflow = 'hidden';
+}
+
+function enableScroll() {
+  document.body.style.paddingRight = '';
+  document.body.style.overflow = '';
 }
 
 // ======== VALID INPUT MESSAGES ========
