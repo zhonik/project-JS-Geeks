@@ -37,7 +37,7 @@ refs.projectsBtnBox.addEventListener('mousedown', e => {
   setTimeout(() => e.target.closest('button').blur(), 0);
 });
 
-function updateNavButtons() {
+function updateNavButtons(swiper) {
   if (swiper.isBeginning) {
     refs.prevButton.setAttribute('disabled', 'true');
   } else {
