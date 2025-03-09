@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initPage();
 });
 
-let fullCommentText = '';
 const minCommentLength = 2;
 const FORM_STORAGE_KEY = 'form-storage-key';
+let fullCommentText = loadFromLS(FORM_STORAGE_KEY)?.comment || '';
 
 // ======== MAIN LOGIC ========
 
@@ -53,6 +53,7 @@ function initPage() {
   const formData = loadFromLS(FORM_STORAGE_KEY);
   refs.form.elements['user-email'].value = formData?.email || '';
   refs.form.elements['user-comment'].value = formData?.comment || '';
+  fullCommentText = formData?.comment || '';
 }
 
 async function handleFormSubmit(e) {
@@ -86,6 +87,7 @@ async function handleFormSubmit(e) {
       openModal();
       e.target.reset();
       localStorage.removeItem(FORM_STORAGE_KEY);
+      fullCommentText = '';
     }
   } catch (error) {
     iziToast.error({
@@ -304,6 +306,7 @@ function handleWindowResize() {
 }
 
 function formatCommentForDisplay() {
+  if (!refs.commentInput.value) return;
   if (!fullCommentText) return;
 
   const maxLength = getMaxLengthForScreenSize();
