@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const applyMobilePadding = answer => {
     if (window.matchMedia('(min-width: 768px)').matches) {
-      answer.style.padding = '';
+      answer.style.padding = '26px 0';
     } else {
       answer.style.padding = '16px 0';
     }
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         answer.style.opacity = '0';
         answer.style.transform = 'translateY(-20px)';
         answer.style.overflow = 'hidden';
-        answer.style.padding = '';
+        answer.style.padding = '0';
         answer.classList.remove('open');
         icon.classList.remove('rotated');
       }
