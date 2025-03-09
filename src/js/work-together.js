@@ -54,6 +54,8 @@ function initPage() {
   refs.form.elements['user-email'].value = formData?.email || '';
   refs.form.elements['user-comment'].value = formData?.comment || '';
   fullCommentText = formData?.comment || '';
+
+  formatCommentForDisplay();
 }
 
 async function handleFormSubmit(e) {
