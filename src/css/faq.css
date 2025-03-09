@@ -14,7 +14,7 @@
 
 .faq-item {
   position: relative;
-  padding-top: 20px 0;
+  padding: 20px 0;
 }
 
 .faq-item:not(:last-child)::before {
