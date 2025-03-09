@@ -32,8 +32,9 @@ refs.modalBackdrop.addEventListener('click', e => {
 });
 
 let fullCommentText = '';
+const minCommentLength = 2;
 
-// ======== LOGIC ========
+// ======== MAIN LOGIC ========
 
 async function handleFormSubmit(e) {
   e.preventDefault();
@@ -76,12 +77,16 @@ async function handleFormSubmit(e) {
 
 function handleEmailInput() {
   const emailInput = this.value;
-  const pattern = new RegExp(this.getAttribute('pattern'));
-  const isValid = pattern.test(this.value);
+  const inputPattern = this.getAttribute('pattern');
+  const validPattern = new RegExp(inputPattern);
+  const isValid = validPattern.test(this.value);
 
   if (emailInput.length === 0) {
     hideSuccessMessage();
     hideErrorMessage();
+
+    hideEmailSuccessBorder();
+    hideEmailErrorBorder();
     return;
   }
 
@@ -96,6 +101,19 @@ function handleEmailInput() {
 
 function handleCommentInput() {
   fullCommentText = refs.commentInput.value;
+
+  if (fullCommentText.length === 0) {
+    hideCommentSuccessBorder();
+    hideCommentErrorBorder();
+    return;
+  }
+
+  if (fullCommentText.length < minCommentLength) {
+    showCommentErrorBorder();
+  } else {
+    hideCommentErrorBorder();
+    showCommentSuccessBorder();
+  }
 }
 
 // ======== API ========
@@ -122,6 +140,9 @@ function openModal() {
   refs.modalBackdrop.classList.add('is-open');
   document.addEventListener('keydown', onEscapePress);
   disableScroll();
+
+  hideEmailSuccessBorder();
+  hideCommentSuccessBorder();
 }
 
 function closeModal() {
@@ -156,21 +177,64 @@ function enableScroll() {
 function showSuccessMessage() {
   refs.successMessage.classList.remove('fade-out');
   refs.successMessage.classList.add('fade-in');
+  showEmailSuccessBorder();
 }
 
 function hideSuccessMessage() {
   refs.successMessage.classList.remove('fade-in');
   refs.successMessage.classList.add('fade-out');
+  hideEmailSuccessBorder();
 }
 
 function showErrorMessage() {
   refs.errorMessage.classList.remove('fade-out');
   refs.errorMessage.classList.add('fade-in');
+  showEmailErrorBorder();
 }
 
 function hideErrorMessage() {
   refs.errorMessage.classList.remove('fade-in');
   refs.errorMessage.classList.add('fade-out');
+  hideEmailErrorBorder();
+  showEmailSuccessBorder();
+}
+
+// ======== VALID INPUT BORDERS ========
+
+// ----- Email input -----
+
+function showEmailSuccessBorder() {
+  refs.emailInput.style.borderColor = '#3cbc81';
+}
+
+function hideEmailSuccessBorder() {
+  refs.emailInput.style.borderColor = '';
+}
+
+function showEmailErrorBorder() {
+  refs.emailInput.style.borderColor = '#e74a3b';
+}
+
+function hideEmailErrorBorder() {
+  refs.emailInput.style.borderColor = '';
+}
+
+// ----- Comment input -----
+
+function showCommentSuccessBorder() {
+  refs.commentInput.style.borderColor = '#3cbc81';
+}
+
+function hideCommentSuccessBorder() {
+  refs.commentInput.style.borderColor = '';
+}
+
+function showCommentErrorBorder() {
+  refs.commentInput.style.borderColor = '#e74a3b';
+}
+
+function hideCommentErrorBorder() {
+  refs.commentInput.style.borderColor = '';
 }
 
 // ======== VALID COMMENT LENGTH ========
@@ -208,11 +272,21 @@ function formatCommentForDisplay() {
 
   if (fullCommentText.length > maxLength) {
     refs.commentInput.value = formatMessage(fullCommentText, maxLength);
+    showFormattedTextColor();
   }
 }
 
 function showFullCommentText() {
   refs.commentInput.value = fullCommentText;
+  hideFormattedTextColor();
+}
+
+function showFormattedTextColor() {
+  refs.commentInput.style.color = 'rgba(250, 250, 250, 0.6)';
+}
+
+function hideFormattedTextColor() {
+  refs.commentInput.style.color = '#fafafa';
 }
 
 // ======== RENDER ========
