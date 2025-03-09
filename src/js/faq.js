@@ -5,6 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  const applyMobilePadding = answer => {
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      answer.style.padding = '';
+    } else {
+      answer.style.padding = '16px 0';
+    }
+  };
+
+  const applyDesktopPadding = () => {
+    faqItems.forEach((item, index) => {
+      if (index >= 3 && window.matchMedia('(min-width: 1440px)').matches) {
+        item.style.paddingLeft = '32px';
+      } else {
+        item.style.paddingLeft = '';
+      }
+    });
+  };
+
   faqItems.forEach(item => {
     const header = item.querySelector('.faq-header');
     const answer = item.querySelector('.faq-answer');
@@ -47,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         answer.style.opacity = '1';
         answer.style.transform = 'translateY(0)';
         answer.style.overflow = 'visible';
+        applyMobilePadding(answer);
         answer.classList.add('open');
         icon.classList.add('rotated');
       } else {
@@ -54,8 +73,21 @@ document.addEventListener('DOMContentLoaded', () => {
         answer.style.opacity = '0';
         answer.style.transform = 'translateY(-20px)';
         answer.style.overflow = 'hidden';
+        answer.style.padding = '';
         answer.classList.remove('open');
         icon.classList.remove('rotated');
+      }
+    });
+  });
+
+  applyDesktopPadding();
+  window.addEventListener('resize', () => {
+    applyDesktopPadding();
+
+    faqItems.forEach(item => {
+      const answer = item.querySelector('.faq-answer');
+      if (answer && answer.classList.contains('open')) {
+        applyMobilePadding(answer);
       }
     });
   });
