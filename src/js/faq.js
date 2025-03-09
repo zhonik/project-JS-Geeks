@@ -11,10 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const otherIcon = otherItem.querySelector('.toggle-btn svg');
 
       if (otherAnswer && otherAnswer !== currentAnswer) {
+        Object.assign(otherAnswer.style, {
+          transform: 'scaleY(0)',
+          height: '0',
+          overflow: 'hidden',
+          paddingTop: '0',
+          paddingBottom: '0',
+        });
         otherAnswer.classList.remove('open');
-        otherAnswer.style.transform = 'scaleY(0)';
-        otherAnswer.style.height = '0';
-        otherAnswer.style.overflow = 'hidden';
         otherIcon.classList.remove('rotated');
       }
     });
@@ -35,15 +39,27 @@ document.addEventListener('DOMContentLoaded', () => {
       closeOtherAnswers(answer);
 
       if (!isOpen) {
-        answer.style.transform = 'scaleY(1)';
-        answer.style.height = `${answer.scrollHeight}px`;
-        answer.style.overflow = 'visible';
+        const paddingTop = 26;
+        const paddingBottom = 0;
+        const totalHeight = answer.scrollHeight + paddingTop + paddingBottom;
+
+        Object.assign(answer.style, {
+          transform: 'scaleY(1)',
+          height: `${totalHeight}px`,
+          overflow: 'visible',
+          paddingTop: `${paddingTop}px`,
+          paddingBottom: `${paddingBottom}px`,
+        });
         answer.classList.add('open');
         icon.classList.add('rotated');
       } else {
-        answer.style.transform = 'scaleY(0)';
-        answer.style.height = '0';
-        answer.style.overflow = 'hidden';
+        Object.assign(answer.style, {
+          transform: 'scaleY(0)',
+          height: '0',
+          overflow: 'hidden',
+          paddingTop: '0',
+          paddingBottom: '0',
+        });
         answer.classList.remove('open');
         icon.classList.remove('rotated');
       }
