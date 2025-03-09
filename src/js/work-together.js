@@ -16,11 +16,17 @@ const refs = {
 
 refs.form.addEventListener('input', handleFormInput);
 refs.form.addEventListener('submit', handleFormSubmit);
+
+refs.emailInput.addEventListener('focus', hideEmailFormattedTextColor);
+refs.emailInput.addEventListener('blur', showEmailFormattedTextColor);
 refs.emailInput.addEventListener('input', handleEmailInput);
+
 refs.commentInput.addEventListener('input', handleCommentInput);
 refs.commentInput.addEventListener('blur', formatCommentForDisplay);
+refs.commentInput.addEventListener('blur', showCommentFormattedTextColor);
 refs.commentInput.addEventListener('focus', showFullCommentText);
 window.addEventListener('resize', handleWindowResize);
+
 refs.modalWindow.addEventListener('click', e => {
   if (e.target.closest('.js-modal-close-button')) {
     closeModal();
@@ -36,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const minCommentLength = 2;
+const dotsLength = 3;
 const FORM_STORAGE_KEY = 'form-storage-key';
 let fullCommentText = loadFromLS(FORM_STORAGE_KEY)?.comment || '';
 
@@ -56,6 +63,7 @@ function initPage() {
   fullCommentText = formData?.comment || '';
 
   formatCommentForDisplay();
+  showEmailFormattedTextColor();
 }
 
 async function handleFormSubmit(e) {
@@ -66,6 +74,7 @@ async function handleFormSubmit(e) {
 
   if (!email || !comment) {
     iziToast.error({
+      position: 'topRight',
       message: 'Please complete the field',
     });
     return;
@@ -93,6 +102,7 @@ async function handleFormSubmit(e) {
     }
   } catch (error) {
     iziToast.error({
+      position: 'topRight',
       message: 'Something went wrong. Please, try again',
     });
     console.log(error);
@@ -283,7 +293,7 @@ function hideCommentErrorBorder() {
 
 function formatMessage(message, maxLength) {
   if (message.length > maxLength) {
-    const visibleLength = maxLength - 3;
+    const visibleLength = maxLength - dotsLength;
     return message.slice(0, visibleLength) + '...';
   }
   return message;
@@ -308,29 +318,36 @@ function handleWindowResize() {
 }
 
 function formatCommentForDisplay() {
-  if (!refs.commentInput.value) return;
   if (!fullCommentText) return;
 
   const maxLength = getMaxLengthForScreenSize();
 
   if (fullCommentText.length > maxLength) {
     refs.commentInput.value = formatMessage(fullCommentText, maxLength);
-    showFormattedTextColor();
   }
+  showCommentFormattedTextColor();
 }
 
 function showFullCommentText() {
   if (!refs.commentInput.value) return;
   refs.commentInput.value = fullCommentText;
-  hideFormattedTextColor();
+  hideCommentFormattedTextColor();
 }
 
-function showFormattedTextColor() {
+function showCommentFormattedTextColor() {
   refs.commentInput.style.color = 'rgba(250, 250, 250, 0.6)';
 }
 
-function hideFormattedTextColor() {
+function hideCommentFormattedTextColor() {
   refs.commentInput.style.color = '#fafafa';
+}
+
+function showEmailFormattedTextColor() {
+  refs.emailInput.style.color = 'rgba(250, 250, 250, 0.6)';
+}
+
+function hideEmailFormattedTextColor() {
+  refs.emailInput.style.color = '#fafafa';
 }
 
 // ======== RENDER ========
