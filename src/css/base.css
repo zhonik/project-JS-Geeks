@@ -28,7 +28,7 @@ body {
   font-weight: 500;
 }
 
-section {
+section:not(:first-child) {
   padding-bottom: 64px;
 }
 
@@ -41,9 +41,5 @@ section {
 @media screen and (min-width: 1440px) {
   section:not(:first-child) {
     padding-bottom: 164px;
-  }
-
-  section:first-child {
-    padding-bottom: 96px;
   }
 }
