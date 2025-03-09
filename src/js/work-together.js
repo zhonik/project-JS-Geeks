@@ -14,6 +14,7 @@ const refs = {
   errorMessage: document.querySelector('.js-error-messasge'),
 };
 
+refs.form.addEventListener('input', handleFormInput);
 refs.form.addEventListener('submit', handleFormSubmit);
 refs.emailInput.addEventListener('input', handleEmailInput);
 refs.commentInput.addEventListener('input', handleCommentInput);
@@ -30,11 +31,29 @@ refs.modalBackdrop.addEventListener('click', e => {
     closeModal();
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  initPage();
+});
 
 let fullCommentText = '';
 const minCommentLength = 2;
+const FORM_STORAGE_KEY = 'form-storage-key';
 
 // ======== MAIN LOGIC ========
+
+function handleFormInput(e) {
+  const email = e.currentTarget.elements['user-email'].value.trim();
+  const comment = e.currentTarget.elements['user-comment'].value.trim();
+
+  const userData = { email, comment };
+  saveToLS(FORM_STORAGE_KEY, userData);
+}
+
+function initPage() {
+  const formData = loadFromLS(FORM_STORAGE_KEY);
+  refs.form.elements['user-email'].value = formData?.email || '';
+  refs.form.elements['user-comment'].value = formData?.comment || '';
+}
 
 async function handleFormSubmit(e) {
   e.preventDefault();
@@ -66,6 +85,7 @@ async function handleFormSubmit(e) {
 
       openModal();
       e.target.reset();
+      localStorage.removeItem(FORM_STORAGE_KEY);
     }
   } catch (error) {
     iziToast.error({
@@ -100,7 +120,7 @@ function handleEmailInput() {
 }
 
 function handleCommentInput() {
-  fullCommentText = refs.commentInput.value;
+  fullCommentText = refs.commentInput.value.trim();
 
   if (fullCommentText.length === 0) {
     hideCommentSuccessBorder();
@@ -131,6 +151,24 @@ async function createMessage({ email, comment }) {
     return response.data;
   } catch (error) {
     console.log(error);
+  }
+}
+
+// ======== LOCAL STORAGE ========
+
+function saveToLS(key, value) {
+  const jsonValue = JSON.stringify(value);
+  localStorage.setItem(key, jsonValue);
+}
+
+function loadFromLS(key) {
+  const data = localStorage.getItem(key);
+
+  try {
+    const parseData = JSON.parse(data);
+    return parseData;
+  } catch {
+    return data;
   }
 }
 
@@ -277,6 +315,7 @@ function formatCommentForDisplay() {
 }
 
 function showFullCommentText() {
+  if (!refs.commentInput.value) return;
   refs.commentInput.value = fullCommentText;
   hideFormattedTextColor();
 }
