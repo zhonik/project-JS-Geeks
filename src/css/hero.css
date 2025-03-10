@@ -16,11 +16,8 @@
         background-image: url("/img/hero-2x.png");
     }
 }
-.hero-container {
-    width: 375px;
-}
+
 .main-title{
-font-family: 'Inter Tight', sans-serif;
 font-weight: 500;
 font-size: 50px;
 line-height: 1;
@@ -41,7 +38,6 @@ margin-bottom: 212px;
 }
 
 .link-item > a {
-font-family: 'Inter Tight', sans-serif;
 font-weight: 500;
 font-size: 14px;
 letter-spacing: -0.02em;
@@ -73,9 +69,6 @@ transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
  .hero {
     padding-top: 300px;
  }
- .hero-container {
-    width: 768px;
-}
  .main-title{
     font-weight: 500;
     font-size: 90px;
@@ -104,9 +97,6 @@ transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 @media only screen and (min-width: 1440px) {
     .hero {
         padding-top: 242px;
-    }
-    .hero-container {
-        width: 1440px;
     }
      .main-title{
         max-width: 1084px;
