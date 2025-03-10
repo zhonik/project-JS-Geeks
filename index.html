@@ -12,12 +12,90 @@
   <script type="module" crossorigin src="/project-JS-Geeks/index.js"></script>
   <link rel="modulepreload" crossorigin href="/project-JS-Geeks/assets/vendor-BvPA-ZqM.js">
   <link rel="stylesheet" crossorigin href="/project-JS-Geeks/assets/vendor-B7goKWir.css">
-  <link rel="stylesheet" crossorigin href="/project-JS-Geeks/assets/index-DZbqfvNB.css">
+  <link rel="stylesheet" crossorigin href="/project-JS-Geeks/assets/index-DOolFFf4.css">
 </head>
 
 <body>
   <header class="header">
-  <div class="container"></div>
+  <div class="header-container">
+    <a class="header-logo" href="./index.html" aria-label="Go to homepage">
+      <img
+        class="logo-foto"
+        srcset="/project-JS-Geeks/assets/logo-foto-2x-7f3AKADV.png 2x, /project-JS-Geeks/assets/logo-foto-1x-C5oUbibY.png 1x"
+        alt="Jefferson photologo"
+        width="80"
+        height="80"
+      />
+      <p class="logo-name">jefferson*</p>
+    </a>
+
+    <nav class="header-nav hidden">
+      <button
+        class="header-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-list"
+      >
+        Menu
+      </button>
+      <ul id="nav-list" class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#about-me">About me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#benefits">Benefits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#faq">FAQ</a>
+        </li>
+      </ul>
+    </nav>
+    <a class="order-button" href="#work-together">Order the project</a>
+
+    <!------------- Mobile-MENU --------------->
+    <div class="mobile-menu">
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-label="Open mobile menu"
+        data-menu-open
+      >
+        <svg class="mobile-menu-icon">
+          <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#menu"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu-container">
+      <button class="mobile-menu-close-button" aria-label="Close mobile menu">
+        <svg class="mobile-menu-close-icon" width="32" height="32">
+          <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#x"></use>
+        </svg>
+      </button>
+      <nav class="mobile-menu-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="#about-me">About me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#benefits">Benefits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+        </ul>
+      </nav>
+      <a class="order-button-mobile-menu" href="#work-together"
+        >Order the project</a
+      >
+    </div>
+  </div>
 </header>
 
 
@@ -51,7 +129,7 @@
         <li class="benefits-item">
           <div class="benefits-icon-frame">
             <svg class="benefits-icon" width="24" height="24">
-              <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#user"></use>
+              <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#user"></use>
             </svg>
           </div>
           <h3 class="benefits-subtitle">Expertise</h3>
@@ -63,7 +141,7 @@
         <li class="benefits-item">
           <div class="benefits-icon-frame">
             <svg class="benefits-icon" width="24" height="24">
-              <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#message-chat"></use>
+              <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#message-chat"></use>
             </svg>
           </div>
           <h3 class="benefits-subtitle">Communication</h3>
@@ -75,7 +153,7 @@
         <li class="benefits-item">
           <div class="benefits-icon-frame">
             <svg class="benefits-icon" width="24" height="24">
-              <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#brush"></use>
+              <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#brush"></use>
             </svg>
           </div>
           <h3 class="benefits-subtitle">Art</h3>
@@ -87,7 +165,7 @@
         <li class="benefits-item">
           <div class="benefits-icon-frame">
             <svg class="benefits-icon" width="24" height="24">
-              <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#hourglass"></use>
+              <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#hourglass"></use>
             </svg>
           </div>
           <h3 class="benefits-subtitle">Urgent execution</h3>
@@ -256,12 +334,12 @@
       <div class="projects-btn-box">
         <button class="projects-btn swiper-button-prev" type="button" disabled>
           <svg class="projects-btn-arrow" width="24" height="24">
-            <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-narrow-left"></use>
+            <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-narrow-left"></use>
           </svg>
         </button>
         <button class="projects-btn swiper-button-next" type="button">
           <svg class="projects-btn-arrow" width="24" height="24">
-            <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-narrow-right"></use>
+            <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-narrow-right"></use>
           </svg>
         </button>
       </div>
@@ -282,7 +360,7 @@
             </p>
             <button class="toggle-btn">
               <svg class="icon">
-                <use xlink:href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-down"></use>
+                <use xlink:href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-down"></use>
               </svg>
             </button>
           </div>
@@ -297,7 +375,7 @@
             <p class="faq-question">What are the deadlines for the project?</p>
             <button class="toggle-btn">
               <svg class="icon">
-                <use xlink:href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-down"></use>
+                <use xlink:href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-down"></use>
               </svg>
             </button>
           </div>
@@ -314,7 +392,7 @@
             <p class="faq-question">What payment methods do you accept?</p>
             <button class="toggle-btn">
               <svg class="icon">
-                <use xlink:href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-down"></use>
+                <use xlink:href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-down"></use>
               </svg>
             </button>
           </div>
@@ -329,7 +407,7 @@
             <p class="faq-question">How can I contact you?</p>
             <button class="toggle-btn">
               <svg class="icon">
-                <use xlink:href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-down"></use>
+                <use xlink:href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-down"></use>
               </svg>
             </button>
           </div>
@@ -344,7 +422,7 @@
             <p class="faq-question">Do you provide advice or support?</p>
             <button class="toggle-btn">
               <svg class="icon">
-                <use xlink:href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-down"></use>
+                <use xlink:href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-down"></use>
               </svg>
             </button>
           </div>
@@ -364,7 +442,7 @@
             </p>
             <button class="toggle-btn">
               <svg class="icon">
-                <use xlink:href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-down"></use>
+                <use xlink:href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-down"></use>
               </svg>
             </button>
           </div>
@@ -397,7 +475,7 @@
           disabled
         >
           <svg class="reviews-button-arrow" width="24" height="24">
-            <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-narrow-left"></use>
+            <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-narrow-left"></use>
           </svg>
         </button>
         <button
@@ -406,7 +484,7 @@
           disabled
         >
           <svg class="reviews-button-arrow" width="24" height="24">
-            <use href="/project-JS-Geeks/assets/sprite-BJEWnD_I.svg#icon-arrow-narrow-right"></use>
+            <use href="/project-JS-Geeks/assets/sprite-BfkqlBgl.svg#icon-arrow-narrow-right"></use>
           </svg>
         </button>
       </div>
