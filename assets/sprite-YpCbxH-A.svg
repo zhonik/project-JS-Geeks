@@ -22,10 +22,10 @@
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M16 16c3.314 0 6-2.686 6-6s-2.686-6-6-6c-3.314 0-6 2.686-6 6s2.686 6 6 6z"></path>
     </symbol>
     <symbol id="icon-arrow-up" viewBox="0 0 32 32">
-      <path fill="none" stroke="#fafafa" stroke-width="3.2" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" style="stroke: var(--color1, #fafafa)" d="M24 20l-8-8-8 8"></path>
+      <path stroke-width="3.2" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" d="M24 20l-8-8-8 8"></path>
     </symbol>
     <symbol id="icon-arrow-down" viewBox="0 0 32 32">
-      <path fill="none" stroke="#fafafa" stroke-width="3.2" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" style="stroke: var(--color1, #fafafa)" d="M24 12l-8 8-8-8"></path>
+      <path stroke-width="3.2" stroke-miterlimit="4" stroke-linecap="butt" stroke-linejoin="miter" d="M24 12l-8 8-8-8"></path>
     </symbol>
     <symbol id="menu" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.2857" d="M4 11.333h24M4 20.667h24"></path>
