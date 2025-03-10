@@ -1,3 +1,81 @@
 <header class="header">
-  <div class="container"></div>
+  <div class="header-container">
+    <a class="header-logo" href="./index.html" aria-label="Go to homepage">
+      <img
+        class="logo-foto"
+        srcset="/img/logo-foto-2x.png 2x, /img/logo-foto-1x.png 1x"
+        alt="Jefferson photologo"
+        width="80"
+        height="80"
+      />
+      <p class="logo-name">jefferson*</p>
+    </a>
+
+    <nav class="header-nav hidden">
+      <button
+        class="header-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-list"
+      >
+        Menu
+      </button>
+      <ul id="nav-list" class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="#about-me">About me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#benefits">Benefits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#faq">FAQ</a>
+        </li>
+      </ul>
+    </nav>
+    <a class="order-button" href="#work-together">Order the project</a>
+
+    <!------------- Mobile-MENU --------------->
+    <div class="mobile-menu">
+      <button
+        class="mobile-menu-button"
+        type="button"
+        aria-label="Open mobile menu"
+        data-menu-open
+      >
+        <svg class="mobile-menu-icon">
+          <use href="/img/sprite.svg#menu"></use>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu-container">
+      <button class="mobile-menu-close-button" aria-label="Close mobile menu">
+        <svg class="mobile-menu-close-icon" width="32" height="32">
+          <use href="/img/sprite.svg#x"></use>
+        </svg>
+      </button>
+      <nav class="mobile-menu-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="#about-me">About me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#benefits">Benefits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li>
+        </ul>
+      </nav>
+      <a class="order-button-mobile-menu" href="#work-together"
+        >Order the project</a
+      >
+    </div>
+  </div>
 </header>
