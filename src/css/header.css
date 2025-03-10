@@ -1,12 +1,8 @@
 .header {
     top: 32px;
-    display: flex;
-    justify-content: center;
     width: 100%;
-    z-index: 10;
-    padding: 0 15px;
+    z-index: 11;
     position: absolute;
-    font-family: 'Inter Tight';
 }
 
 .hidden {
@@ -17,8 +13,6 @@
 .header-container {
     display: flex;
     justify-content: space-between;
-    width: 343px;
-    min-height: 80px;
 }
 
 
@@ -54,8 +48,6 @@
 
 
 .logo-name {
-    font-family: 'Inter Tight', sans-serif;
-    font-weight: 500;
     font-size: 20px;
     letter-spacing: -0.02em;
     color: #fafafa;
@@ -154,12 +146,8 @@
     display: none;
 }
 
-  .header {
-    padding: 0 32px;
-  }
-
   .header-container {
-    width: 632px;
+    width: 704px;
   }
 
   .mobile-menu-container {
@@ -180,9 +168,6 @@
     background-color: transparent;
     border: none;
     padding: 0;
-    font-family: 'Inter Tight', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
     letter-spacing: -0.02em;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -220,9 +205,6 @@
   }
 
   .nav-link {
-    font-family: 'Inter Tight', sans-serif;
-    font-weight: 500;
-    font-size: 16px;
     letter-spacing: -0.02em;
     color: #fafafa;
     transition: color 250ms ease;

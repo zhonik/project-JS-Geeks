@@ -8,16 +8,6 @@ const navLinks = document.querySelectorAll('.mobile-menu-nav .nav-link');
 const orderButtonMobile = document.querySelector('.order-button-mobile-menu');
 
 
-function doOpenMenu() {  
-  mobileMenuContainer.classList.add("show");  
-  document.body.classList.add("ModalBodyLock");  
-}  
-
-function doCloseMenu() {  
-  mobileMenuContainer.classList.remove("show");  
-  document.body.classList.remove("ModalBodyLock");  
-}  
-
 headerMenuButton.addEventListener("click", (event) => {  
   event.preventDefault();
   if (navList.classList.contains("menu-visible")) {
@@ -35,7 +25,17 @@ document.addEventListener("click", (event) => {
 });
 
 mobileMenuButton.addEventListener("click", doOpenMenu);  
-mobileMenuCloseButton.addEventListener("click", doCloseMenu);  
+mobileMenuCloseButton.addEventListener("click", doCloseMenu); 
+
+function doOpenMenu() {  
+  mobileMenuContainer.classList.add("show");  
+  document.body.classList.add("ModalBodyLock");  
+}  
+
+function doCloseMenu() {  
+  mobileMenuContainer.classList.remove("show");  
+  document.body.classList.remove("ModalBodyLock");  
+} 
 
 navLinks.forEach(link => {  
   link.addEventListener("click", (event) => {  
