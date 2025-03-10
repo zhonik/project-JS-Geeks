@@ -27,6 +27,9 @@ body {
   font-family: var(--font-family);
   font-weight: 500;
 }
+section:first-child {
+  margin-bottom: 64px;
+}
 
 section:not(:first-child) {
   padding-bottom: 64px;
@@ -41,5 +44,9 @@ section:not(:first-child) {
 @media screen and (min-width: 1440px) {
   section:not(:first-child) {
     padding-bottom: 164px;
+  }
+
+  section:first-child {
+    margin-bottom: 96px;
   }
 }
