@@ -2,13 +2,13 @@
 .hero {
     width: 100%;
     position: relative;
-    display: flex;
     flex-direction: column;
     background-image: url(/img/hero-1x.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding-top: 281px;
+    padding-bottom: 32px;
 }
 
 @media (min-resolution: 192dpi) {
@@ -18,7 +18,6 @@
 }
 
 .main-title{
-font-family: 'Inter Tight', sans-serif;
 font-weight: 500;
 font-size: 50px;
 line-height: 1;
@@ -30,14 +29,15 @@ margin: 0 auto;
 margin-bottom: 212px;  
 }
 
-
 .social-list {
     display: flex;
     gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .link-item > a {
-font-family: 'Inter Tight', sans-serif;
 font-weight: 500;
 font-size: 14px;
 letter-spacing: -0.02em;
@@ -64,13 +64,6 @@ transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transform: scale(1.1);
 }
 
-.list-container {
-display: flex;
-justify-content: flex-end;
-align-items: flex-end;
-margin-bottom: 32px;
-}
-
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
  .hero {
@@ -84,6 +77,8 @@ margin-bottom: 32px;
     }
     .social-list {
         gap: 8px;
+        justify-content: flex-end;
+        align-items: flex-end;
     }
     .link-item > a {
         font-weight: 500;
@@ -107,6 +102,5 @@ margin-bottom: 32px;
         max-width: 1084px;
         margin-bottom: 301px;  
     }
-
   }
   
