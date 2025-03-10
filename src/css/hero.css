@@ -33,9 +33,6 @@ margin-bottom: 212px;
 
 .social-list {
     display: flex;
-    position: absolute;
-    bottom: 32px;  
-    right: 17px;
     gap: 4px;
 }
 
@@ -67,6 +64,13 @@ transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transform: scale(1.1);
 }
 
+.list-container {
+display: flex;
+justify-content: flex-end;
+align-items: flex-end;
+margin-bottom: 32px;
+}
+
 /* Styles for Tablet devices */
 @media only screen and (min-width: 768px) {
  .hero {
@@ -79,8 +83,6 @@ transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 187px; 
     }
     .social-list {
-        bottom: 32px;
-        right: 32px;
         gap: 8px;
     }
     .link-item > a {
@@ -105,8 +107,6 @@ transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
         max-width: 1084px;
         margin-bottom: 301px;  
     }
-    .social-list {
-    gap: 10px;
-    }
+
   }
   
