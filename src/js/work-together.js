@@ -16,16 +16,17 @@ const refs = {
 
 refs.form.addEventListener('input', handleFormInput);
 refs.form.addEventListener('submit', handleFormSubmit);
-
-refs.emailInput.addEventListener('focus', hideEmailFormattedTextColor);
-refs.emailInput.addEventListener('blur', showEmailFormattedTextColor);
 refs.emailInput.addEventListener('input', handleEmailInput);
-
 refs.commentInput.addEventListener('input', handleCommentInput);
 refs.commentInput.addEventListener('blur', formatCommentForDisplay);
-refs.commentInput.addEventListener('blur', showCommentFormattedTextColor);
 refs.commentInput.addEventListener('focus', showFullCommentText);
-window.addEventListener('resize', handleWindowResize);
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    refs.commentInput.value = fullCommentText;
+    formatCommentForDisplay();
+  }, 0);
+});
 
 refs.modalWindow.addEventListener('click', e => {
   if (e.target.closest('.js-modal-close-button')) {
@@ -39,10 +40,11 @@ refs.modalBackdrop.addEventListener('click', e => {
 });
 document.addEventListener('DOMContentLoaded', () => {
   initPage();
+  formatCommentForDisplay();
 });
 
+let resizeTimeout;
 const minCommentLength = 2;
-const dotsLength = 3;
 const FORM_STORAGE_KEY = 'form-storage-key';
 let fullCommentText = loadFromLS(FORM_STORAGE_KEY)?.comment || '';
 
@@ -61,9 +63,6 @@ function initPage() {
   refs.form.elements['user-email'].value = formData?.email || '';
   refs.form.elements['user-comment'].value = formData?.comment || '';
   fullCommentText = formData?.comment || '';
-
-  formatCommentForDisplay();
-  showEmailFormattedTextColor();
 }
 
 async function handleFormSubmit(e) {
@@ -291,63 +290,49 @@ function hideCommentErrorBorder() {
 
 // ======== VALID COMMENT LENGTH ========
 
-function formatMessage(message, maxLength) {
-  if (message.length > maxLength) {
-    const visibleLength = maxLength - dotsLength;
-    return message.slice(0, visibleLength) + '...';
-  }
-  return message;
-}
-
-function getMaxLengthForScreenSize() {
-  const width = window.innerWidth;
-
-  if (width >= 320 && width <= 767) {
-    return 36;
-  } else if (width >= 768 && width <= 1440) {
-    return 30;
-  } else if (width >= 1440) {
-    return 44;
-  }
-}
-
-function handleWindowResize() {
-  if (document.activeElement !== refs.commentInput) {
-    formatCommentForDisplay();
-  }
+function getTextWidth(text, font) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.font = font;
+  return ctx.measureText(text).width;
 }
 
 function formatCommentForDisplay() {
-  if (!fullCommentText) return;
+  const commentInput = refs.commentInput;
 
-  const maxLength = getMaxLengthForScreenSize();
-
-  if (fullCommentText.length > maxLength) {
-    refs.commentInput.value = formatMessage(fullCommentText, maxLength);
+  if (commentInput.offsetWidth === 0) {
+    return;
   }
-  showCommentFormattedTextColor();
+
+  const inputWidth = commentInput.getBoundingClientRect().width;
+  const computedStyle = window.getComputedStyle(commentInput);
+
+  const fontWeight = computedStyle.fontWeight;
+  const fontSize = computedStyle.fontSize;
+  const fontFamily = computedStyle.fontFamily;
+
+  const font = `${fontWeight} ${fontSize} ${fontFamily}`;
+  let textWidth = getTextWidth(commentInput.value, font);
+
+  const inputPadding = 12;
+
+  if (textWidth > inputWidth - inputPadding) {
+    let truncatedText = refs.commentInput.value;
+
+    while (
+      getTextWidth(truncatedText + '...', font) > inputWidth - inputPadding &&
+      truncatedText.length > 0
+    ) {
+      truncatedText = truncatedText.slice(0, -1);
+    }
+
+    refs.commentInput.value = truncatedText + '...';
+  }
 }
 
 function showFullCommentText() {
   if (!refs.commentInput.value) return;
   refs.commentInput.value = fullCommentText;
-  hideCommentFormattedTextColor();
-}
-
-function showCommentFormattedTextColor() {
-  refs.commentInput.style.color = 'rgba(250, 250, 250, 0.6)';
-}
-
-function hideCommentFormattedTextColor() {
-  refs.commentInput.style.color = '#fafafa';
-}
-
-function showEmailFormattedTextColor() {
-  refs.emailInput.style.color = 'rgba(250, 250, 250, 0.6)';
-}
-
-function hideEmailFormattedTextColor() {
-  refs.emailInput.style.color = '#fafafa';
 }
 
 // ======== RENDER ========
