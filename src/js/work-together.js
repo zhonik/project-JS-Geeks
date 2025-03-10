@@ -20,6 +20,7 @@ refs.emailInput.addEventListener('input', handleEmailInput);
 refs.commentInput.addEventListener('input', handleCommentInput);
 refs.commentInput.addEventListener('blur', formatCommentForDisplay);
 refs.commentInput.addEventListener('focus', showFullCommentText);
+
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(() => {
@@ -300,9 +301,8 @@ function getTextWidth(text, font) {
 function formatCommentForDisplay() {
   const commentInput = refs.commentInput;
 
-  if (commentInput.offsetWidth === 0) {
-    return;
-  }
+  if (!commentInput) return;
+  if (commentInput.offsetWidth === 0) return;
 
   const inputWidth = commentInput.getBoundingClientRect().width;
   const computedStyle = window.getComputedStyle(commentInput);
@@ -312,12 +312,12 @@ function formatCommentForDisplay() {
   const fontFamily = computedStyle.fontFamily;
 
   const font = `${fontWeight} ${fontSize} ${fontFamily}`;
-  let textWidth = getTextWidth(commentInput.value, font);
+  let textWidth = getTextWidth(commentInput.value.trim(), font);
 
   const inputPadding = 12;
 
   if (textWidth > inputWidth - inputPadding) {
-    let truncatedText = refs.commentInput.value;
+    let truncatedText = refs.commentInput.value.trim();
 
     while (
       getTextWidth(truncatedText + '...', font) > inputWidth - inputPadding &&
@@ -327,6 +327,8 @@ function formatCommentForDisplay() {
     }
 
     refs.commentInput.value = truncatedText + '...';
+  } else {
+    refs.commentInput.value = fullCommentText;
   }
 }
 
