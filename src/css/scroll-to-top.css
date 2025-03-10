@@ -25,11 +25,11 @@
 }
 
 .scroll-to-top .icon {
-  width: 36px;
-  height: 36px;
-  transform: rotate(180deg);
+  width: 24px;
+  height: 24px;
+  transform: rotate(90deg);
   fill: none;
-  stroke: #2b4441;
+  stroke: #0e8a7b;
 }
 
 .scroll-to-top.show {
