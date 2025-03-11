@@ -3,7 +3,7 @@
     width: 100%;
     position: relative;
     flex-direction: column;
-    background-image: url(/img/hero-1x.png);
+    background-image: url(/img/hero-1x-opt.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@
 
 @media (min-resolution: 192dpi) {
     .hero {
-        background-image: url("/img/hero-2x.png");
+        background-image: url("/img/hero-2x-opt.jpg");
     }
 }
 
