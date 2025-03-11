@@ -66,11 +66,11 @@ section.section-covers {
 
 @keyframes marqueeLine {
   from {
-    transform: translateX(20%);
+    transform: translateX(-60%);
   }
 
   to {
-    transform: translateX(-130%);
+    transform: translateX(-200%);
   }
 }
 
@@ -86,6 +86,16 @@ section.section-covers {
 
   .covers-image {
     width: 544px;
+  }
+
+  @keyframes marqueeLine {
+    from {
+      transform: translateX(-20%);
+    }
+
+    to {
+      transform: translateX(-150%);
+    }
   }
 }
 
