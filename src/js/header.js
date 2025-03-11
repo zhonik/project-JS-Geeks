@@ -29,12 +29,12 @@ mobileMenuCloseButton.addEventListener("click", doCloseMenu);
 
 function doOpenMenu() {  
   mobileMenuContainer.classList.add("show");  
-  document.body.classList.add("ModalBodyLock");  
+  document.body.classList.add("modal-body-lock");  
 }  
 
 function doCloseMenu() {  
   mobileMenuContainer.classList.remove("show");  
-  document.body.classList.remove("ModalBodyLock");  
+  document.body.classList.remove("modal-body-lock");  
 } 
 
 navLinks.forEach(link => {  
