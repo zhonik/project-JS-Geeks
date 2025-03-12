@@ -102,10 +102,10 @@
 /* Styles for Desktop devices */
 @media only screen and (min-width: 1440px) {
   .hero {
-    padding-top: 242px;
+    padding-top: 300px;
   }
   .main-title {
     max-width: 1084px;
-    margin-bottom: 301px;
+    margin-bottom: 243px;
   }
 }
